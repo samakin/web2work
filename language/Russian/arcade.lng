@@ -1,0 +1,10 @@
+<?php
+
+$arcade_lng = array (
+
+'arcade'			=>	"On-Line Игры",
+
+
+
+
+);

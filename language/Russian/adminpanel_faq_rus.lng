@@ -1,0 +1,30 @@
+<?php
+define("_ADDCATEGORY","Добавить категорию");
+define("_ADDQUESTION","Добавить новый вопрос");
+define("_ANSWER","Ответ");
+define("_CATEGORY","Категория");
+define("_EDITCATEGORY","Редактировать категорию");
+define("_EDITQUESTIONS","Редактировать вопросы и ответы");
+define("_EMAILUSER","E-Mail пользователя");
+define("_FAQASK","Ответить");
+define("_NEWFAQASK","Новые вопросы");
+define("_POLLEACHFIELD","Введите варианты ответа");
+define("_QUESTION","Вопрос");
+define("_FUNCTIONS","Функции");
+define("_ID","ID");
+define("_TITLE","Заголовок");
+define("_DELETE","Удалить");
+define("_EDIT","Редактировать");
+define("_CONTENT","Контент");
+define("_ADD","Добавить");
+define("_YES","Да");
+define("_NO","Нет");
+define("_GOBACK","Назад");
+define("_SAVE","Сохранить");
+define("_NICKNAME","Имя");
+define("_EMAIL","Email");
+define("_SEND","Отправить");
+define("_NEWQ","Новые вопросы");
+define("_ACTIVATE","Показывается");
+define("_INACTIVE","Не показывается");
+?>

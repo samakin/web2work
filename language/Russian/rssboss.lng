@@ -1,0 +1,82 @@
+<?php
+/*------------------------------------------------
+ * RssBoss v.2.02.001 
+ * Copyright © FinBoss 2009 
+ * finboss.ua@gmail.com 
+ *
+ * for DataLife Engine v.8.2
+ * License: Commercial open source software (COSS) 
+ *------------------------------------------------
+ */
+
+
+ // Русский языковой файл для модуля "RssBoss"
+
+$lang = array_merge ($lang, array (
+	
+	'page_rssboss' => 'RssBoss',
+
+	'rssboss_documentation' => 'Документация',
+	'rssboss_videoguide' => 'Видео гид',
+	'rssboss_testnewversion' => 'Проверить наличие новой версии',
+
+	'rssboss_addchannel' => 'Добавить канал',
+	'rssboss_tocategory' => 'в категорию',
+	'rssboss_newcategory' => 'Новая категория',
+
+	'rssboss_numberofchannel' => 'Всего каналов',
+
+	'rssboss_service' => 'Канал',
+	'rssboss_topic' => 'Сообщений',
+	'rssboss_published' => 'Опубликовано',
+	'rssboss_loaded' => 'Загружено',
+	'rssboss_action' => 'Действие',
+
+	'rssboss_openchannel' => 'Показать сообщения',
+	'rssboss_update' => 'Обновить',
+	'rssboss_cron' => 'Настройка cron',
+	'rssboss_imgprefix' => 'Префикс img',
+	'rssboss_cut' => 'Отступ &lt;cut&gt;',
+	'rssboss_disable' => 'Отключить',
+	'rssboss_enable' => 'Включить',
+	'rssboss_delete' => 'Удалить',
+	'rssboss_areyoushure' => 'Вы уверены?',
+	
+	'rssboss_period' => 'Период обновления, сек',
+	'rssboss_backlink' => 'Ссылка на источник',
+
+	'rssboss_mistake_channel' => 'Такой канал в выбранной категории уже есть',
+	'rssboss_mistake_norss' => 'У этого канала нет ленты Rss или Atom',
+	'rssboss_mistake_nonewcategoryname' => 'Не введено наменование новой категории',
+
+	'rssboss_back' => 'Назад',
+	'rssboss_save' => 'Сохранить',
+	'rssboss_edit' => 'Редактировать',
+	'rssboss_attributes' => 'Атрибуты',
+	'rssboss_node' => 'Узел',
+	'rssboss_name' => 'Имя',
+	'rssboss_value' => 'Значение',
+	'rssboss_number' => 'Порядковый номер',
+	'rssboss_recoding' => 'Перекодировка',
+	'rssboss_testchannel' => 'Проверить',
+
+
+	'rssboss_edit' => 'Редактировать',
+	'rssboss_deleteall' => 'Удалить все',
+	'rssboss_deletepublished' => 'Удалить опубликованные',
+	'rssboss_publish' => 'Опубликовать',
+	'rssboss_publish_show' => 'Опубликовать и показать',
+	'rssboss_publish_delete' => 'Опубликовать и удалить',
+	'rssboss_publish_delete_show' => 'Опубликовать, удалить и показать',
+	'rssboss_published' => 'Опубликовано',
+
+	'rssboss_updatedforchannel' => 'Выполнено обновление для канала ',
+	'rssboss_rsserror' => 'Ошибка чтения канала',
+	'rssboss_notopicdata' => 'Нет данных',
+	'rssboss_tagcut' => 'Не забудьте вставить тег <b>&lt;cut&gt;</b> для автоматического формирования краткого описания',
+	'rssboss_symbolcount' => 'Кол. символов: ',
+	'rssboss_errtitle' => 'Пост с таким заголовком уже есть',
+
+));
+
+?>

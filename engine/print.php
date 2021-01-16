@@ -1,16 +1,18 @@
 <?php
 /*
-==============================================================================
- Веб-Система "Web2Work" разработка Кривоногова Евгения Эдуардовича
-------------------------------------------------------------------------------
- http://web2work.ru - официальная страница продажи веб-системы
- http://vkontakte.ru/club13001075 - официальная страница поддержки проекта
- http://www.youtube.com/channel/UCs1yzsO9earP5yOXiMLGclw - Видео презентации
------------------------------------------------------------------------------
- Copyright (c) 2008-2017, Разработка Кривоногова Евгения Эдуардовича
-=============================================================================
+=====================================================
+ DataLife Engine - by SoftNews Media Group
+-----------------------------------------------------
+ http://dle-news.ru/
+-----------------------------------------------------
+ Copyright (c) 2004,2013 SoftNews Media Group
+=====================================================
  Данный код защищен авторскими правами
-=============================================================================
+=====================================================
+ Файл: print.php
+-----------------------------------------------------
+ Назначение: Версия для печати
+=====================================================
 */
 
 @ob_start ();
@@ -42,7 +44,7 @@ require_once ENGINE_DIR . '/classes/templates.class.php';
 
 dle_session();
 
-if( $config['site_offline'] == "yes" ) die( "The site in offline mode" );
+if( $config['site_offline'] ) die( "The site in offline mode" );
 
 check_xss();
 $_TIME = time() + ($config['date_adjust'] * 60);
@@ -68,7 +70,7 @@ if( $config["lang_" . $config['skin']] ) {
 
 $config['charset'] = ($lang['charset'] != '') ? $lang['charset'] : $config['charset'];
 
-if( $config['allow_registration'] == "yes" ) {
+if( $config['allow_registration'] ) {
 
 	include_once ENGINE_DIR . '/modules/sitelogin.php';
 
@@ -77,6 +79,25 @@ if( $config['allow_registration'] == "yes" ) {
 //####################################################################################################################
 //                    Определение категорий и их параметры
 //####################################################################################################################
+$cat_info = get_vars( "category" );
+
+if( ! $cat_info ) {
+	$cat_info = array ();
+
+	$db->query( "SELECT * FROM " . PREFIX . "_category ORDER BY posi ASC" );
+	while ( $row = $db->get_row() ) {
+
+		$cat_info[$row['id']] = array ();
+
+		foreach ( $row as $key => $value ) {
+			$cat_info[$row['id']][$key] = $value;
+		}
+
+	}
+	set_vars( "category", $cat_info );
+	$db->free();
+}
+
 //################# Определение групп пользователей
 $user_group = get_vars( "usergroup" );
 
@@ -144,13 +165,14 @@ $tpl = new dle_template();
 $tpl->dir = ROOT_DIR . '/templates/' . $config['skin'];
 define( 'TEMPLATE_DIR', $tpl->dir );
 
+if ($config['rss_informer']) include_once ENGINE_DIR . '/modules/rssinform.php';
+
 $config['allow_cache'] = false;
-$view_template = "firm/3dpanorams";
-include_once ENGINE_DIR . '/modules/content/firm/3dpanorams.php';
+$view_template = "print";
+include_once ENGINE_DIR . '/engine.php';
 
 $tpl->result['content'] = str_replace ( '{THEME}', $config['http_home_url'] . 'templates/' . $config['skin'], $tpl->result['content'] );
 $tpl->result['content'] = str_replace ( '{charset}', $config['charset'], $tpl->result['content'] );
-$tpl->result['content'] = str_replace ( '{AJAX}', build_js($js_array, $config), $tpl->result['content'] );
 
 echo $tpl->result['content'];
 ?>

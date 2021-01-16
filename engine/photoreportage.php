@@ -7,7 +7,7 @@
  http://vkontakte.ru/club13001075 - официальная страница поддержки проекта
  http://www.youtube.com/channel/UCs1yzsO9earP5yOXiMLGclw - Видео презентации
 -----------------------------------------------------------------------------
- Copyright (c) 2008-2017, Разработка Кривоногова Евгения Эдуардовича
+ Copyright (c) 2008-2015, Разработка Кривоногова Евгения Эдуардовича
 =============================================================================
  Данный код защищен авторскими правами
 =============================================================================
@@ -42,7 +42,7 @@ require_once ENGINE_DIR . '/classes/templates.class.php';
 
 dle_session();
 
-if( $config['site_offline'] == "yes" ) die( "The site in offline mode" );
+if( $config['site_offline'] ) die( "The site in offline mode" );
 
 check_xss();
 $_TIME = time() + ($config['date_adjust'] * 60);
@@ -68,7 +68,7 @@ if( $config["lang_" . $config['skin']] ) {
 
 $config['charset'] = ($lang['charset'] != '') ? $lang['charset'] : $config['charset'];
 
-if( $config['allow_registration'] == "yes" ) {
+if( $config['allow_registration'] ) {
 
 	include_once ENGINE_DIR . '/modules/sitelogin.php';
 
@@ -145,12 +145,14 @@ $tpl->dir = ROOT_DIR . '/templates/' . $config['skin'];
 define( 'TEMPLATE_DIR', $tpl->dir );
 
 $config['allow_cache'] = false;
-$view_template = "firm/3dpanorams";
-include_once ENGINE_DIR . '/modules/content/firm/3dpanorams.php';
+$view_template = "photoreportage/print";
+include_once ENGINE_DIR . '/modules/content/photoreportage/photoreportage.php';
 
 $tpl->result['content'] = str_replace ( '{THEME}', $config['http_home_url'] . 'templates/' . $config['skin'], $tpl->result['content'] );
 $tpl->result['content'] = str_replace ( '{charset}', $config['charset'], $tpl->result['content'] );
 $tpl->result['content'] = str_replace ( '{AJAX}', build_js($js_array, $config), $tpl->result['content'] );
 
+$config['charset'] = ($lang['charset'] != '') ? $lang['charset'] : $config['charset'];
+header("Content-type: text/html; charset=".$distr_charset);
 echo $tpl->result['content'];
 ?>
